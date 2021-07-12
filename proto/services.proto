@@ -1,0 +1,45 @@
+syntax = "proto3";
+package protopack;
+
+import "google/api/annotations.proto";
+option go_package = "tradingitem.server/generated_proto;protopack";
+
+message SignupReq {
+  string username = 1;
+  string email = 2;
+  string  password = 3;
+}
+
+message SignupRes {
+  int32 statusCode = 1;
+  string detail = 2;
+}
+
+message LoginReq {
+  string email = 1;
+  string  password = 2;
+}
+
+message LoginRes {
+  int32 statusCode = 1;
+  string detail = 2;
+}
+
+
+service AccountServices {
+  rpc SignupService (SignupReq) returns (SignupRes) {
+    option (google.api.http) = {
+      post: "/signup"
+      body: "*"
+    };
+  }
+
+  rpc LoginService (LoginReq) returns (LoginRes) {
+    option (google.api.http) = {
+      post: "/login"
+      body: "*"
+    };
+  }
+
+
+}
