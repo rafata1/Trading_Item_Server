@@ -9,7 +9,7 @@ import (
 )
 
 func connectToDB() *sqlx.DB {
-	db, err := sqlx.Connect("mysql", "root:1@(localhost:3306)/trading_item_db")
+	db, err := sqlx.Connect("mysql", "root:1@(mysql-server:3306)/trading_item_db")
 	if err != nil {
 		log.Fatalf("Err occured while connecting to db")
 		return &sqlx.DB{}
