@@ -19,8 +19,8 @@ func NewServer() *Server {
 
 func (s *Server) SignupService(ctx context.Context, req *protopack.SignupReq) ( res *protopack.SignupRes,e error)  {
 
-
-	statusCode, detail := addUser(req.GetEmail(), req.GetUsername(), req.GetPassword(), s.myDB)
+	statusCode, detail := signUp(req.GetEmail(), req.GetUsername(), req.GetPassword(), req.GetPhoneNumber(),
+		req.GetGender(), req.GetDob(), s.myDB)
 	return &protopack.SignupRes{
 		StatusCode: statusCode,
 		Detail: detail,

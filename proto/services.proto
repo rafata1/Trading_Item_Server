@@ -5,9 +5,12 @@ import "google/api/annotations.proto";
 option go_package = "tradingitem.server/generated_proto;protopack";
 
 message SignupReq {
-  string username = 1;
-  string email = 2;
+  string email = 1;
+  string username = 2;
   string  password = 3;
+  string phone_number = 4;
+  string gender = 5;
+  string dob = 6;
 }
 
 message SignupRes {
